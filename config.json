@@ -1,21 +1,17 @@
 {
-  "readmeUrl": "https://raw.githubusercontent.com/cveinnt/cveinnt/master/README.md",
-  "title": "LiveTerm",
-  "name": "John Doe",
-  "ascii": "liveterm",
+  "readmeUrl": "https://github.com/hanlynn-aung/hanlynn-aung/blob/main/README.md",
+  "title": "Han Lynn Aung",
+  "name": "Han Lynn Aung",
+  "ascii": "Han Lynn Aung",
   "social": {
-    "github": "github",
-    "linkedin": "linkedin"
+    "github": "hanlynn-aung",
+    "linkedin": "han-lynn-aung"
   },
-  "email": "contact@email.com",
-  "ps1_hostname": "liveterm",
+  "email": "hanlynnaung1997@email.com",
+  "ps1_hostname": "Han Lynn Aung",
   "ps1_username": "visitor",
   "repo": "https://github.com/Cveinnt/LiveTerm",
-  "resume_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Resume.pdf",
-  "donate_urls": {
-    "paypal": "https://paypal.me/cveinnt",
-    "patreon": "https://patreon.com/cveinnt"
-  },
+  "cv_url": "https://www.canva.com/design/DAGpwP6mQjk/J9LLl-QvCS5Q24XAvUrNtg/view",
   "colors": {
     "light": {
       "background": "#FBF1C9",
