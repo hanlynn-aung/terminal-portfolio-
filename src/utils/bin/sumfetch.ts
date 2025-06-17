@@ -35,7 +35,7 @@ const sumfetch = async (args: string[]): Promise<string> => {
    ▓▓     ▓▓▓    ▐▓▓    ▐▓▓     ▓▓           ${aboutText}
 ▐▓▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▓        <u><a href="${config.cv_url}" target="_blank">CV</a></u>
 ▐▓                                 ▐▓       爵 <u><a href="${config.repo}" target="_blank">Terminal Portfolio repo </a></u>
-▐▓         >    Han Lynn Aung      ▐▓       -----------
+▐▓    (-__-)    Han Lynn Aung      ▐▓       -----------
 ▐▓                                 ▐▓        CONTACT 
 ▐▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓        <u><a href="mailto:${config.email}" target="_blank">${config.email}</a></u>
    ▓▓      ▐▓▓    ▓▓    ▐▓▓     ▓▓           <u><a href="https://github.com/${config.social.github}" target="_blank">github.com/${config.social.github}</a></u>

@@ -48,6 +48,12 @@ More about me:
 `;
 };
 
+export const readme = async (args: string[]): Promise<string> => {
+  window.open(`https://github.com/${config.social.github}`);
+  return `Opening GitHub README...`;
+};
+
+
 export const cv = async (args: string[]): Promise<string> => {
   window.open(`${config.cv_url}`);
   return 'Opening cv...';
@@ -111,8 +117,8 @@ export const whoami = async (args: string[]): Promise<string> => {
 };
 
 export const ls = async (args: string[]): Promise<string> => {
-  return `about       projects    skills      cv     
-github      linkedin    sumfetch    help`;
+  return `about   readme    projects    skills      cv     
+github     linkedin    sumfetch    help`;
 };
 
 // export const cd = async (args: string[]): Promise<string> => {
