@@ -6,21 +6,33 @@ import { getProjects, getWeather } from '../api';
 
 // Help
 export const help = async (args: string[]): Promise<string> => {
-  const commands = Object.keys(bin).sort().join(', ');
   const sortedCommands = Object.keys(bin).sort();
   const columns = 7;
-  const colWidth = 18; // Adjust for longer command names
-  let c = '';
+  const colWidth = 16; // adjust width to fit your longest command comfortably
+  let output = '';
 
   for (let i = 0; i < sortedCommands.length; i++) {
-    c += sortedCommands[i].padEnd(colWidth, ' ');
-    if ((i + 1) % columns === 0) c += '\n';
+    // pad command to fixed width
+    output += sortedCommands[i].padEnd(colWidth, ' ');
+
+    // newline after every 'columns' commands
+    if ((i + 1) % columns === 0) {
+      output += '\n';
+    }
+  }
+
+  // add newline if last line incomplete
+  if (sortedCommands.length % columns !== 0) {
+    output += '\n';
   }
 
   return `Welcome! Here are all the available commands:
-\n${c}\n
+
+${output}
+
 [tab]: trigger completion.
-[ctrl+l]/clear: clear terminal.\n
+[ctrl+l]/clear: clear terminal.
+
 Type 'sumfetch' to display summary.
 `;
 };
@@ -38,7 +50,7 @@ export const about = async (args: string[]): Promise<string> => {
 I focus on building scalable backend systems, with hands-on experience in:
 - Loyalty and Reward Point System
 - Edible Oil E-Governance Project
-- API Development, System Integration, and Reporting
+- API Development, System Integration, and Performance Optimization
 
 Tech stack: Java, Spring Boot, React, MySQL, PostgreSQL, MongoDB, Docker.
 
@@ -161,8 +173,9 @@ export const jobprojects = async (args: string[]): Promise<string> => {
    - Improved data accuracy and reporting
 
 2. 🛢️ Edible Oil E-Governance Platform
-   - Integrated with Taw Win, Akariz, CTZ Pay, Panamax
-   - Built quota tracking and reporting modules
+   - Developed core APIs
+   - Integrated with Taw Win Akariz, CTZ Pay, Panamax
+   - Built quota tracking and reporting
    - Standardized data and mentored trainees
 
 Type 'about' to learn more about my experience.
@@ -215,22 +228,27 @@ export const myprojects = async (args: string[]): Promise<string> => {
 
 // Banner
 export const banner = (args?: string[]): string => {
-  const headshotUrl = '/han-lynn-aung.jpg'; // from public folder
+  const headshotUrl = '/han-lynn-aung.jpg';
 
   return `
-<div style="display: inline-flex; align-items: center;" >
-<img src="${headshotUrl}" width="180px" style="margin-right: 2em;" />
-
+<div class="banner-container">
+  <img 
+    src="${headshotUrl}" 
+    alt="Headshot" 
+    class="banner-image"
+  />
+  <pre class="banner-text">
 ██╗░░██╗░█████╗░███╗░░██╗  ██╗░░░░░██╗░░░██╗███╗░░██╗███╗░░██╗  ░█████╗░██╗░░░██╗███╗░░██╗░██████╗░
 ██║░░██║██╔══██╗████╗░██║  ██║░░░░░╚██╗░██╔╝████╗░██║████╗░██║  ██╔══██╗██║░░░██║████╗░██║██╔════╝░
 ███████║███████║██╔██╗██║  ██║░░░░░░╚████╔╝░██╔██╗██║██╔██╗██║  ███████║██║░░░██║██╔██╗██║██║░░██╗░
 ██╔══██║██╔══██║██║╚████║  ██║░░░░░░░╚██╔╝░░██║╚████║██║╚████║  ██╔══██║██║░░░██║██║╚████║██║░░╚██╗
 ██║░░██║██║░░██║██║░╚███║  ███████╗░░░██║░░░██║░╚███║██║░╚███║  ██║░░██║╚██████╔╝██║░╚███║╚██████╔╝
-╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝  ╚══════╝░░░╚═╝░░░╚═╝░░╚══╝╚═╝░░╚══╝  ╚═╝░░╚═╝░╚═════╝░╚═╝░░╚══╝░╚═════╝░ 
+╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝  ╚══════╝░░░╚═╝░░░╚═╝░░╚══╝╚═╝░░╚══╝  ╚═╝░░╚═╝░╚═════╝░╚═╝░░╚══╝░╚═════╝░
+  </pre>
 </div>
+
 Type 'help' to see the list of available commands.
 Type 'sumfetch' to display summary.
-Type 'repo' or click <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.repo}" target="_blank">here</a></u> for the Terminal Portfolio Github repository.
+Type 'repo' or click <u><a href="${config.repo}" target="_blank">here</a></u> for the Terminal Portfolio Github repository.
 `;
 };
-

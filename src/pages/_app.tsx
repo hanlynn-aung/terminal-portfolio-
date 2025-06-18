@@ -14,17 +14,15 @@ const App = ({ Component, pageProps }) => {
       <Head>
         <meta
           name="viewport"
-          content="initial-scale=1.0, width=device-width"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
           key="viewport"
-          maximum-scale="1"
         />
       </Head>
-
       <div
-        className="text-light-foreground dark:text-dark-foreground min-w-max text-xs md:min-w-full md:text-base"
+        className="text-light-foreground dark:text-dark-foreground min-w-full text-sm xs:text-base md:text-lg"
         onClick={onClickAnywhere}
       >
-        <main className="bg-light-background dark:bg-dark-background w-full h-full p-2">
+        <main className="bg-light-background dark:bg-dark-background w-full h-full p-2 sm:p-4 md:p-6">
           <Component {...pageProps} inputRef={inputRef} />
         </main>
       </div>
