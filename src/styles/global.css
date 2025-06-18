@@ -2,40 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom font */
 @font-face {
   font-family: 'Hack';
-  src: url(/assets/fonts/Hack-NF.ttf);
-  display: swap;
+  src: url('/assets/fonts/Hack-NF.ttf') format('truetype');
+  font-display: swap;
 }
 
+/* Font & universal style */
 * {
   font-family: 'Hack', monospace;
+  color: #282a36;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
 }
 
+/* Layout structure */
 html,
 body,
 body > div:first-child,
-div#__next,
-div#__next > div {
+#__next,
+#__next > div {
   height: 100%;
+  background-color: #FFFFDB;
+  transition: background-color 0.3s ease, color 0.3s ease;
   overflow: auto;
 }
 
+/* Scrollbar styles */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1e252e;
-  border-radius: 5px;
+  background: #f4f1d0;
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(40, 42, 54, 0.08);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ebdbb2;
-  border-radius: 5px;
+  background: linear-gradient(180deg, #67AFC0, #ffb86c); /* blue to yellow */
+  border-radius: 10px;
+  border: 2px solid #FFFFDB;
+  box-shadow: 0 0 8px rgba(103, 175, 192, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff8037;
+  background: linear-gradient(180deg, #ffb86c, #67AFC0); /* yellow to blue */
+  box-shadow: 0 0 12px rgba(255, 184, 108, 0.6);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
 }

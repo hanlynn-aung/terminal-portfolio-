@@ -2,13 +2,14 @@
 
 import * as bin from './index';
 import config from '../../../config.json';
+import { getProjects, getWeather } from '../api';
 
 // Help
 export const help = async (args: string[]): Promise<string> => {
   const commands = Object.keys(bin).sort().join(', ');
   const sortedCommands = Object.keys(bin).sort();
   const columns = 7;
-  const colWidth = 14; // Adjust for longer command names
+  const colWidth = 18; // Adjust for longer command names
   let c = '';
 
   for (let i = 0; i < sortedCommands.length; i++) {
@@ -117,8 +118,8 @@ export const whoami = async (args: string[]): Promise<string> => {
 };
 
 export const ls = async (args: string[]): Promise<string> => {
-  return `about   readme    projects    skills      cv     
-github     linkedin    sumfetch    help`;
+  return `about      readme       jobprojects      myprojects    skills      cv     
+github     linkedin     sumfetch         weather       help`;
 };
 
 // export const cd = async (args: string[]): Promise<string> => {
@@ -151,7 +152,7 @@ export const sudo = async (args?: string[]): Promise<string> => {
   return `Permission denied: with little power comes... no responsibility? `;
 };
 
-export const projects = async (args: string[]): Promise<string> => {
+export const jobprojects = async (args: string[]): Promise<string> => {
   return `Here are a few projects I've worked on:
 
 1. 🏆 Loyalty & Reward Point System
@@ -186,6 +187,31 @@ export const skills = async (args: string[]): Promise<string> => {
 Type 'cv' to open my resume or 'sumfetch' for a quick summary.
 `;
 };
+
+//weather
+export const weather = async (args: string[]): Promise<string> => {
+  const city = args.join('+');
+  if (!city) {
+    return 'Usage: weather [city]. Example: weather casablanca';
+  }
+  const weather = await getWeather(city);
+  return weather;
+};
+
+export const myprojects = async (args: string[]): Promise<string> => {
+  const projects = await getProjects();
+  return projects
+    .map(
+      (repo) =>
+        `${repo.name} - <a class="text-light-blue dark:text-dark-blue underline" href="${repo.html_url}" target="_blank">${repo.html_url}</a>`,
+    )
+    .join('\n');
+};
+
+// export const quote = async (args: string[]): Promise<string> => {
+//   const data = await getQuote();
+//   return data.quote;
+// };
 
 // Banner
 export const banner = (args?: string[]): string => {

@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="036c777d-fa46-48f3-a3bb-fa77c968e97d" name="Changes" comment="">
+    <list default="true" id="036c777d-fa46-48f3-a3bb-fa77c968e97d" name="Changes" comment="enhance color optimized">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_document.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/bin/api_commands.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/bin/commands.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/bin/commands.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/bin/sumfetch.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/bin/sumfetch.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,22 +25,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Han-Lynn-Aung"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Han-Lynn-Aung&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/hanlynn-aung/terminal-portfolio-.git",
-    "accountId": "012d5ef9-04f1-4331-992d-c62d78f6ab81"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/hanlynn-aung/terminal-portfolio-.git&quot;,
+    &quot;accountId&quot;: &quot;012d5ef9-04f1-4331-992d-c62d78f6ab81&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 8
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2ycrZ8beF1q0Qd6D5OYnnjvLlyD" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -41,6 +49,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "D:/terminal portfolio",
     "node.js.detected.package.eslint": "true",
@@ -48,6 +57,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "D:\\terminal portfolio\\node_modules\\prettier",
     "ts.external.directory.path": "D:\\terminal portfolio\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -76,7 +86,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1750144758256</updated>
-      <workItem from="1750144761825" duration="14484000" />
+      <workItem from="1750144761825" duration="15221000" />
+      <workItem from="1750230617192" duration="3693000" />
     </task>
     <servers />
   </component>
@@ -93,5 +104,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="enhance color optimized" />
+    <option name="LAST_COMMIT_MESSAGE" value="enhance color optimized" />
   </component>
 </project>
