@@ -2,9 +2,22 @@ import React from 'react';
 import { commandExists } from '../utils/commandExists';
 import { shell } from '../utils/shell';
 import { handleTabCompletion } from '../utils/tabCompletion';
+import { History } from './history/interface';
 import { Ps1 } from './Ps1';
 
-export const Input = ({
+interface InputProps {
+  inputRef: React.MutableRefObject<HTMLInputElement | null>;
+  containerRef: React.MutableRefObject<HTMLDivElement | null>;
+  command: string;
+  history: Array<History>;
+  lastCommandIndex: number;
+  setCommand: React.Dispatch<React.SetStateAction<string>>;
+  setHistory: (value: string) => void;
+  setLastCommandIndex: React.Dispatch<React.SetStateAction<number>>;
+  clearHistory: () => void;
+}
+
+export const Input: React.FC<InputProps> = ({
   inputRef,
   containerRef,
   command,
@@ -16,7 +29,7 @@ export const Input = ({
   clearHistory,
 }) => {
   const onSubmit = async (event: React.KeyboardEvent<HTMLInputElement>) => {
-    const commands: [string] = history
+    const commands: string[] = history
       .map(({ command }) => command)
       .filter((command: string) => command);
 
@@ -41,7 +54,7 @@ export const Input = ({
       event.preventDefault();
       setLastCommandIndex(0);
       await shell(command, setHistory, clearHistory, setCommand);
-      containerRef.current.scrollTo(0, containerRef.current.scrollHeight);
+      containerRef.current?.scrollTo(0, containerRef.current.scrollHeight);
     }
 
     if (event.key === 'ArrowUp') {
@@ -88,10 +101,10 @@ export const Input = ({
         ref={inputRef}
         id="prompt"
         type="text"
-        className={`bg-light-background dark:bg-dark-background focus:outline-none flex-grow ${
+        className={`bg-themed-background focus:outline-none flex-1 min-w-0 text-sm xs:text-base ${
           commandExists(command) || command === ''
-            ? 'text-dark-green'
-            : 'text-dark-red'
+            ? 'text-themed-cursor'
+            : 'text-themed-red'
         }`}
         value={command}
         onChange={onChange}

@@ -2,19 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ================================
+/* ===============================
    CSS Variables for easy theming
    ================================ */
 :root {
-    --bg-color: #FFFFDB;
-    --text-color: #282a36;
-    --scrollbar-track-bg: #f4f1d0;
-    --scrollbar-thumb-gradient-start: #67AFC0;
-    --scrollbar-thumb-gradient-end: #ffb86c;
-    --scrollbar-thumb-border: #FFFFDB;
-    --scrollbar-thumb-shadow: rgba(103, 175, 192, 0.4);
-    --scrollbar-thumb-hover-shadow: rgba(255, 184, 108, 0.6);
-    --link-color: #67afc0;
+    --color-background: #2E3440;
+    --color-foreground: #E5E9F0;
+    --color-yellow: #5E81AC;
+    --color-green: #A3BE8C;
+    --color-gray: #88C0D0;
+    --color-blue: #EBCB8B;
+    --color-red: #BF616A;
+}
+
+.light {
+    --color-background: #D8DEE9;
+    --color-foreground: #2E3440;
+    --color-yellow: #4C6F94;
+    --color-green: #7B9E6B;
+    --color-gray: #4C566A;
+    --color-blue: #D08770;
+    --color-red: #A8444D;
 }
 
 /* ===============================
@@ -23,14 +31,21 @@
 html, body {
     max-width: 100vw;
     overflow-x: hidden;
-    background-color: var(--bg-color);
+    overflow-y: auto;
+    background-color: var(--color-background);
     scroll-behavior: smooth;
     height: 100%;
     transition: background-color 0.3s ease, color 0.3s ease;
-    color: var(--text-color);
-    font-family: 'Hack', monospace;
+    color: var(--color-foreground);
+    font-family: 'Hack', 'Courier New', monospace;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Prevent iOS input zoom */
+input, textarea, select {
+    font-size: 16px !important;
 }
 
 body > div:first-child,
@@ -41,35 +56,36 @@ body > div:first-child,
 }
 
 /* ===============================
-   Scrollbar styling (Webkit only)
+   Theme-aware utility classes
+   Replaces Tailwind text-light-* / dark:text-dark-*
    =============================== */
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-    background: transparent;
+.text-themed-foreground { color: var(--color-foreground); }
+.text-themed-yellow { color: var(--color-yellow); }
+.text-themed-green { color: var(--color-green); }
+.text-themed-gray { color: var(--color-gray); }
+.text-themed-blue { color: var(--color-blue); }
+.text-themed-red { color: var(--color-red); }
+.text-themed-cursor { color: var(--color-green); }
+
+.bg-themed-background { background-color: var(--color-background); }
+.bg-themed-yellow { background-color: var(--color-yellow); }
+.bg-themed-green { background-color: var(--color-green); }
+.bg-themed-gray { background-color: var(--color-gray); }
+.bg-themed-blue { background-color: var(--color-blue); }
+.bg-themed-red { background-color: var(--color-red); }
+
+.border-themed-yellow { border-color: var(--color-yellow); }
+
+/* ===============================
+   Hide scrollbar but keep scroll functionality
+   =============================== */
+* {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
-::-webkit-scrollbar-track {
-    background: var(--scrollbar-track-bg);
-    border-radius: 10px;
-    box-shadow: inset 0 0 5px rgba(40, 42, 54, 0.08);
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, var(--scrollbar-thumb-gradient-start), var(--scrollbar-thumb-gradient-end));
-    border-radius: 10px;
-    border: 2px solid var(--scrollbar-thumb-border);
-    box-shadow: 0 0 8px var(--scrollbar-thumb-shadow);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, var(--scrollbar-thumb-gradient-end), var(--scrollbar-thumb-gradient-start));
-    box-shadow: 0 0 12px var(--scrollbar-thumb-hover-shadow);
-}
-
-::-webkit-scrollbar-corner {
-    background: transparent;
+*::-webkit-scrollbar {
+    display: none;
 }
 
 /* ===============================
@@ -110,7 +126,7 @@ body > div:first-child,
     text-align: left;
     white-space: pre;
     max-width: 90%;
-    color: var(--text-color);
+    color: var(--color-foreground);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -146,7 +162,7 @@ body > div:first-child,
     font-size: 13px;
     justify-content: flex-end;
     line-height: 1.3;
-    color: var(--text-color);
+    color: var(--color-foreground);
     max-width: 100%;
     padding: 1rem;
     transition: font-size 0.3s ease, padding 0.3s ease;
@@ -158,7 +174,7 @@ body > div:first-child,
 }
 
 .sumfetch-container a {
-    color: var(--link-color);
+    color: var(--color-gray);
     text-decoration: underline;
     word-break: break-word;
 }
@@ -166,67 +182,118 @@ body > div:first-child,
 /* ===============================
    Responsive adjustments
    =============================== */
+
+/* Tablet and smaller laptops */
+@media (max-width: 1024px) {
+    .banner-image {
+        width: 240px;
+    }
+    .banner-text {
+        font-size: 7px;
+    }
+}
+
+/* Large phones and small tablets */
 @media (max-width: 768px) {
     .banner-image {
-        width: 220px;
-        max-width: 55vw;
+        width: 200px;
+        max-width: 50vw;
     }
 
     .banner-text {
         font-size: 6px;
     }
+
+    .sumfetch-container {
+        font-size: 11px;
+    }
 }
 
+/* Mobile devices */
 @media (max-width: 600px) {
     .banner-image {
-        width: 160px;
-        max-width: 60vw;
+        width: 150px;
+        max-width: 55vw;
     }
 
     .banner-container {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 0.5rem;
+        padding: 0.5rem;
     }
 
     .banner-text {
         font-size: 5px;
-        text-align: left; /* preserve left align for readability */
+        text-align: left;
+        max-width: 100%;
+        overflow-x: auto;
     }
 
     .cat-banner-img {
-        width: 70vw;
-        max-width: 140px;
+        width: 120px;
+        max-width: 60vw;
     }
 
     .sumfetch-container {
-        font-size: 9px;
-        padding: 0.75rem;
+        font-size: 10px;
+        padding: 0.5rem;
+        line-height: 1.4;
     }
 
-    .sumfetch-container a {
-        font-size: 9px;
+    .sumfetch-container p {
+        margin: 0 0 0.4em 0;
+    }
+
+    .sumfetch-wrapper.banner-container {
+        flex-direction: column;
+        gap: 0.25rem;
     }
 }
 
+/* Small phones */
 @media (max-width: 400px) {
     .banner-image {
-        width: 130px;
-        max-width: 70vw;
+        width: 120px;
+        max-width: 65vw;
     }
 
     .banner-text {
-        font-size: 4px;
+        font-size: 3.5px;
+        line-height: 1.2;
+    }
+
+    .sumfetch-container {
+        font-size: 9px;
+        padding: 0.35rem;
+        line-height: 1.3;
+    }
+
+    .sumfetch-container p {
+        margin: 0 0 0.3em 0;
     }
 }
 
+/* Very small phones */
 @media (max-width: 350px) {
+    .banner-text {
+        font-size: 3px;
+    }
+
     .sumfetch-container {
-        font-size: 9px;
+        font-size: 8px;
     }
 
     .sumfetch-container a {
-        font-size: 9px;
+        font-size: 8px;
+    }
+}
+
+/* Extra tall screens - use more vertical space */
+@media (min-height: 900px) {
+    .banner-container {
+        padding: 2rem 1rem;
     }
 }
 

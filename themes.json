@@ -61,13 +61,13 @@
   },
   "Nord": {
     "light": {
-      "background": "#E5E9F0",
+      "background": "#D8DEE9",
       "foreground": "#2E3440",
-      "yellow": "#5E81AC",
-      "green": "#A3BE8C",
-      "gray": "#88C0D0",
-      "blue": "#EBCB8B",
-      "red": "#BF616A"
+      "yellow": "#4C6F94",
+      "green": "#7B9E6B",
+      "gray": "#4C566A",
+      "blue": "#D08770",
+      "red": "#A8444D"
     },
     "dark": {
       "background": "#2E3440",
