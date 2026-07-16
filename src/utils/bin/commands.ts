@@ -60,6 +60,7 @@ Experienced in designing robust APIs, integrating complex systems, and ensuring 
 More about me:
   'sumfetch' - short summary.
   'cv' - my latest CV.
+  'resume' - my latest resume.
   'readme' - my GitHub readme.
 `;
 };
@@ -73,6 +74,11 @@ export const readme = async (args: string[]): Promise<string> => {
 export const cv = async (args: string[]): Promise<string> => {
   window.open(`${config.cv_url}`);
   return 'Opening cv...';
+};
+
+export const resume = async (args: string[]): Promise<string> => {
+  window.open(`${config.resume_url}`);
+  return 'Opening resume...';
 };
 
 // Donate
@@ -133,7 +139,7 @@ export const whoami = async (args: string[]): Promise<string> => {
 };
 
 export const ls = async (args: string[]): Promise<string> => {
-  return `about      readme       jobprojects      myprojects    skills      cv     
+  return `about      readme       jobprojects      myprojects    skills      cv        resume
 github     linkedin     sumfetch         weather       help      theme     quote`;
 };
 
